@@ -19,3 +19,7 @@ Code to find interchromosomal translocations from WGS/WES data (bam-files)
 
 5. Combine consecutive positions (covered by same reads) from the step before into regions to create an easier overview
   * python scripts/clustering.py
+
+6. Annotate the result files to check whether the regions cover Segment Duplicates or simple repeats. This might be a reason for mismapping the reads (and therefore, there might not be a real translocation)
+   * move the simple_repeats.txt and segDups.txt to the correct folder
+   * python scripts/transloci_anno.py
