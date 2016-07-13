@@ -3,7 +3,7 @@
 ###################################################
 # This program reorganizes the translocation file #
 # by summarizing regions, which most likely share #
-# the same reads, that cover them				  #
+# the same reads, that cover them		  #
 ###################################################
 
 outfile = open('transloci_fil.txt','w')
