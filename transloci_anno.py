@@ -31,7 +31,7 @@ for line in open("Annotate_SimpleRepeats_parsed.txt", 'r'):
 
 #Open output file
 f = open('transloci_fil_anno.txt', 'w')
-
+l = open('transloci_fil_annofil.txt', 'w')
 
 
 #write all the lines to a file and annotated them if the positions lay in a duplicated segment
@@ -47,6 +47,7 @@ for line in open('transloci_fil.txt', 'r'):
                 f.write(str.join('\t', (line.strip('\n'), 'Repeat\n')))  
         else:
                 f.write(line)
+                l.write(line)
                 
 
 f.close()
