@@ -22,7 +22,7 @@ chromosomes = ['1','2','3','4','5','6','7','8','9','10','11', '12', '13', '14', 
 
 for i in chromosomes: #for each chromosome the coverage information is saved in its own file
 	chr = "chr" + i
-    filename = '/home/jana/j_data/201606_Transloci/01_bam_file/chr_files/'+ chr + '.txt'
+    filename = '/home/jana/j_data/201606_Transloci/01_bam_file/new_chr_files/'+ chr + '.txt'
     f = open(filename,'w')
 	for column in samfile.pileup(chr): #Loops through every position of the current chromosome
 		#then get the information for all the reads at this position and their mate reads
