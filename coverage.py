@@ -26,8 +26,11 @@ for i in chromosomes: #for each chromosome the coverage information is saved in 
     f = open(filename,'w')
 	for column in samfile.pileup(chr): #Loops through every position of the current chromosome
 		#then get the information for all the reads at this position and their mate reads
+		fst_pos = column.pos
 		for read in column.pileups:
-			seq =(str(chr), str(column.pos), read.alignment.next_reference_name, read.alignment.next_reference_start)
+			mate_chr = read.alignment.next_reference_name.split('')[3]
+			mate_pos = read.alignemt.next_reference_start
+			seq =(i, fst_pos, mate_chr, mate_pos)
 			f.write('\t'.join(seq))
 			f.write('\n')
 	f.close()
