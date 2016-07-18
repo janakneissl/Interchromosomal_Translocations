@@ -25,11 +25,9 @@ for i in chromosomes: #for each chromosome the coverage information is saved in 
     filename = '/home/jana/j_data/201606_Transloci/01_bam_file/chr_files/'+ chr + '.txt'
     f = open(filename,'w')
 	for column in samfile.pileup(chr): #Loops through every position of the current chromosome
-		#first retrieve the coverage information for the position and write it to the file
-		s = '\nChr '+str(chr)+' Pos '+str(column.pos)+' Cov '+str(column.n) 
-		f.write(s)
 		#then get the information for all the reads at this position and their mate reads
 		for read in column.pileups:
-			r = '\n\t' + read.alignment.next_reference_name + '\t'+ str(read.alignment.next_reference_start)
-			f.write(r)
+			seq =(str(chr), str(column.pos), read.alignment.next_reference_name, read.alignment.next_reference_start)
+			f.write('\t'.join(seq))
+			f.write('\n')
 	f.close()
