@@ -3,11 +3,12 @@
 ##########################################################
 # This program takes in a bam file with discordant reads # 
 # and outputs a file with the coverage at each position  #
-# and the chromosome and position of the mate read		 #
-#														 #
-# format of the output file:							 #
-#		Chr chr1 Pos 9999 Cov 9999						 #
-#				chr5 87670								 #
+# and the chromosome and position of the mate read	 #
+#							 #
+# format of the output file:				 #
+#		chr_1	pos_1	chr_2	pos_2		 #
+#		1 	8888	4	93298		 #
+#  							 #
 ##########################################################
 
 
