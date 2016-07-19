@@ -26,15 +26,15 @@ pattern = re.compile("|".join(rep.keys()))
 
 for i in chromosomes: #for each chromosome the coverage information is saved in its own file
 	chr = "chr" + i
-    filename = '/home/jana/j_data/201606_Transloci/01_bam_file/new_chr_files/'+ chr + '.txt'
-    f = open(filename,'w')
+    	filename = '/home/jana/j_data/201606_Transloci/01_bam_file/new_chr_files/'+ chr + '.txt'
+    	f = open(filename,'w')
 	for column in samfile.pileup(chr): #Loops through every position of the current chromosome
 		#then get the information for all the reads at this position and their mate reads
 		i = pattern.sub(lambda m:rep[re.escape(m.group(0))],i)
-		fst_pos = column.pos
+		fst_pos = str(column.pos)
 		for read in column.pileups:
-			mate_chr = read.alignment.next_reference_name.split('')[3]
-			mate_pos = pattern.sub(lambda m: rep[re.escape(m.group(0))],read.alignemt.next_reference_start)
+			mate_chr = pattern.sub(lambda m: rep[re.escape(m.group(0))],read.alignment.next_reference_name.split('')[3]))
+			mate_pos = str(read.alignmentt.next_reference_start)
 			seq =(i, fst_pos, mate_chr, mate_pos)
 			f.write('\t'.join(seq))
 			f.write('\n')
